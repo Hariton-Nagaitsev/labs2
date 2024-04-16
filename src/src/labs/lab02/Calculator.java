@@ -19,12 +19,12 @@ public class Calculator {
 
     public long divide(long a, long b) {
         if (b == 0) throw new IllegalArgumentException("Делитель не может быть равен нулю");
-        return a / b;
+        return (long) ((double) a / b);
     }
 
     public int divide(int a, int b) {
         if (b == 0) throw new IllegalArgumentException("Делитель не может быть равен нулю");
-        return a / b;
+        return (int) ((double) a / b);
     }
 
     // Умножение
