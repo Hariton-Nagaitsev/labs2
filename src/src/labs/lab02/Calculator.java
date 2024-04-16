@@ -2,15 +2,18 @@ package src.labs.lab02;
 
 public class Calculator {
     //Сумма
-    public int sum(int a, int b){
+    public int sum(int a, int b) {
         return a + b;
     }
-    public double sum(double a, double b){
+
+    public double sum(double a, double b) {
         return a + b;
     }
-    public long sum(long a, long b){
+
+    public long sum(long a, long b) {
         return a + b;
     }
+
     // Деление
     public double divide(double a, double b) {
         if (b == 0) throw new IllegalArgumentException("Делитель не может быть равен нулю");
@@ -26,6 +29,7 @@ public class Calculator {
         if (b == 0) throw new IllegalArgumentException("Делитель не может быть равен нулю");
         return (int) ((double) a / b);
     }
+
     // Умножение
     public double multiply(double a, double b) {
         return a * b;
