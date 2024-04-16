@@ -26,7 +26,6 @@ public class Calculator {
         if (b == 0) throw new IllegalArgumentException("Делитель не может быть равен нулю");
         return (int) ((double) a / b);
     }
-
     // Умножение
     public double multiply(double a, double b) {
         return a * b;
