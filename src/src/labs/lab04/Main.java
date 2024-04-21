@@ -6,15 +6,37 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
+        // Часть 1, задание 1
+        printOddNumbers();
 
-        //Часть 1, задание 1
+        // Часть 1, задание 2
+        printDivisibleNumbers();
+
+        // Часть 1, задание 3
+        checkSumOfThreeNumbers();
+
+        // Часть 1, задание 4
+        checkOrderOfNumbers();
+
+        // Часть 1, задание 5
+        checkArrayForThree();
+
+        // Часть 1, задание 6
+        checkArrayForOneOrThree();
+    }
+
+    // Метод для печати нечетных чисел от 1 до 99
+    public static void printOddNumbers() {
         System.out.println("---------------------------");
         for (int i = 1; i <= 99; i++) {
             if (i % 2 != 0) {
                 System.out.println(i);
             }
         }
-        //Часть 1, задание 2
+    }
+
+    // Метод для печати чисел, которые делятся на 3 или на 5
+    public static void printDivisibleNumbers() {
         System.out.println("---------------------------");
         for (int i = 1; i <= 100; i++) {
             if (i % 3 == 0 && i % 5 == 0) {
@@ -25,7 +47,10 @@ public class Main {
                 System.out.println("Делится на 5: " + i);
             }
         }
-        //Часть 1, задание 3
+    }
+
+    // Метод для проверки суммы трех чисел
+    public static void checkSumOfThreeNumbers() {
         System.out.println("---------------------------");
         Scanner scanner = new Scanner(System.in);
         boolean continueInput = true;
@@ -38,25 +63,22 @@ public class Main {
             System.out.println("Введите третье число: ");
             int number3 = scanner.nextInt();
 
-            boolean result;
-            if (number1 + number2 == number3) {
-                result = true;
-                System.out.println("Результат: " + result);
-            } else {
-                result = false;
-                System.out.println("Результат: " + result);
-            }
+            boolean result = number1 + number2 == number3;
+            System.out.println("Результат: " + result);
 
             System.out.println("Продолжить? (true/false): ");
             String input = scanner.next();
             continueInput = Boolean.parseBoolean(input);
         }
-        //Часть 1, задание 4
-        System.out.println("---------------------------");
-        //Scanner scanner = new Scanner(System.in);
-        boolean continueInput1 = true;
+    }
 
-        while (continueInput1) {
+    // Метод для проверки порядка чисел
+    public static void checkOrderOfNumbers() {
+        System.out.println("---------------------------");
+        Scanner scanner = new Scanner(System.in);
+        boolean continueInput = true;
+
+        while (continueInput) {
             System.out.println("Введите первое число: ");
             int number1 = scanner.nextInt();
             System.out.println("Введите второе число: ");
@@ -64,64 +86,49 @@ public class Main {
             System.out.println("Введите третье число: ");
             int number3 = scanner.nextInt();
 
-            boolean result;
-            if (number2 > number1 && number3 > number2) {
-                result = true;
-                System.out.println("Результат: " + result);
-            } else {
-                result = false;
-                System.out.println("Результат: " + result);
-            }
+            boolean result = number2 > number1 && number3 > number2;
+            System.out.println("Результат: " + result);
 
             System.out.println("Продолжить? (true/false): ");
             String input = scanner.next();
-            continueInput1 = Boolean.parseBoolean(input);
+            continueInput = Boolean.parseBoolean(input);
         }
-        //Часть 1, задание 5
+    }
+
+    // Метод для проверки массива на наличие тройки в начале или конце
+    public static void checkArrayForThree() {
         System.out.println("---------------------------");
         int[] array1 = {3, -3, 7, 4, 5, 4, 3};
         int[] array2 = {1, 2, 1, 4, 5, 3, 8};
 
-        boolean result1;
-        boolean result2;
+        boolean result1 = array1.length >= 2 && (array1[0] == 3 || array1[array1.length - 1] == 3);
+        System.out.println("array1 = " + Arrays.toString(array1) + "\n" + result1);
 
-        if (array1.length >= 2 && (array1[0] == 3 || array1[array1.length - 1] == 3)) {
-            result1 = true;
-            System.out.println("array1 = " + Arrays.toString(array1) + "\n" + result1);
-        } else {
-            result1 = false;
-            System.out.println("array1 = " + Arrays.toString(array1) + "\n" + result1);
-        }
+        boolean result2 = array2.length >= 2 && (array2[0] == 3 || array2[array2.length - 1] == 3);
+        System.out.println("array2 = " + Arrays.toString(array2) + "\n" + result2);
+    }
 
-        if (array2.length >= 2 && (array2[0] == 3 || array2[array2.length - 1] == 3)) {
-            result2 = true;
-            System.out.println("array2 = " + Arrays.toString(array2) + "\n" + result2);
-        } else {
-            result2 = false;
-            System.out.println("array2 = " + Arrays.toString(array2) + "\n" + result2);
-        }
-        //Часть 1, задание 6
+    // Метод для проверки массива на наличие единицы или тройки
+    public static void checkArrayForOneOrThree() {
         System.out.println("---------------------------");
         int[] array = {1, -3, 7, 4, 5, 4, 3};
         int[] array3 = {0, -3, 7, 4, 5, 4, 5};
-        boolean result = false;
 
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == 1 || array[i] == 3) {
-                result = true;
-                break;
-            }
-        }
+        boolean result = checkArrayForValue(array, 1) || checkArrayForValue(array, 3);
         System.out.println(result);
-        result = false;
 
-        for (int i = 0; i < array3.length; i++) {
-            if (array3[i] == 1 || array3[i] == 3) {
-                result = true;
-                break;
-            }
-        }
+        result = checkArrayForValue(array3, 1) || checkArrayForValue(array3, 3);
         System.out.println(result);
         System.out.println("---------------------------");
+    }
+
+    // Метод для проверки наличия значения в массиве
+    public static boolean checkArrayForValue(int[] array, int value) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == value) {
+                return true;
+            }
+        }
+        return false;
     }
 }
