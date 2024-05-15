@@ -2,7 +2,7 @@ package src.labs.lab07;
 
 public class Airplane {
     public static class Wing {
-        private double wingWeight; // Поле для хранения веса крыла
+        private double wingWeight;
 
         public Wing(double wingWeight) {
             this.wingWeight = wingWeight;
